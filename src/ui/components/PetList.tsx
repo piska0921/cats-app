@@ -7,8 +7,10 @@ type PetListProps = {
     petList: Pet[]
 }
 
-const Container = styled.div`
+const Container = styled.ul`
     width: 100%;
+    list-style-type: none;
+    padding: 0;
     @media only screen and (min-width: ${BreakPoint.LARGE}) {
         width: 50%;
     }
@@ -16,7 +18,7 @@ const Container = styled.div`
 const Header = styled.h1`
     color: ${ACCENT_COLOR};
 `
-const ListItem = styled.div`
+const ListItem = styled.li`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,6 +27,12 @@ const ListItem = styled.div`
     background-color: ${PRIMARY_COLOR};
     color: #fff;
     font-size: 1.5rem;
+    transition: 0.3s;
+
+    &:hover {
+        transform: scale(1.05);
+        cursor: pointer;
+    }
 `
 
 export const PetList: React.FC<PetListProps> = (props: PetListProps) => {
