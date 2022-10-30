@@ -21,6 +21,7 @@ const useGetCatListByGender = (): ApiHookResult<PetsByOwnerGender> & { fetchCatL
             setData(sortPetsByOwnerGender(ownersDetails, PetType.CAT))
             setSuccess(true)
         } catch (err) {
+            console.error(err)
             setError(err as Error)
         } finally {
             setLoading(false)
