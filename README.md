@@ -2,6 +2,10 @@
 
 Retrieve the data of owners with their pets from api and display the cats in alphabetical order under the title of their owner's gender
 
+## To view this project online
+
+Open [https://medibank-cats-app.herokuapp.com/](https://medibank-cats-app.herokuapp.com/)
+
 ## To run this project locally
 
 1.  **clone the repo or download zip file**
