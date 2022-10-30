@@ -1,13 +1,18 @@
 import { useState } from 'react'
 import ApiClient from '../api/ApiClient'
 import { sortPetsByOwnerGender } from '../mappers/mapCatList'
-import { PetType } from '../types/enums'
+import { PetsByOwnerGender } from '../types'
+import { PetType } from '../types'
+import { ApiHookResult } from '../types/apiHooks'
 
-export function useGetCatListByGender() {
+export const useGetCatListByGender = (): ApiHookResult<PetsByOwnerGender> & { fetchCatList: () => void } => {
     const [success, setSuccess] = useState(false)
     const [loading, setLoading] = useState(false)
-    const [data, setData] = useState<any>()
-    const [error, setError] = useState<any>()
+    const [data, setData] = useState<PetsByOwnerGender>({
+        Male: [],
+        Female: []
+    })
+    const [error, setError] = useState<Error | undefined>()
 
     const fetchCatList = async () => {
         try {
@@ -16,11 +21,11 @@ export function useGetCatListByGender() {
             setData(sortPetsByOwnerGender(ownersDetails, PetType.CAT))
             setSuccess(true)
         } catch (err) {
-            setError(err)
+            setError(err as Error)
         } finally {
             setLoading(false)
         }
     }
 
-    return [data, success, loading, error, fetchCatList]
+    return { data, success, loading, error, fetchCatList }
 }

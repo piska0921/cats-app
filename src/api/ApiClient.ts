@@ -18,7 +18,7 @@ export default class ApiClient {
         if (statusCheck) {
             return isResJsonFormat ? response.json() : response.text()
         } else {
-            throw new Error()
+            throw new Error('An error occurred with api request')
         }
     }
 }

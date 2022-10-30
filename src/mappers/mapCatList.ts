@@ -1,10 +1,6 @@
+import { PetsByOwnerGender } from '../types'
 import { Owner, Pet } from '../types/api-response/ownersResponse'
-import { OwnerGender, PetType } from '../types/enums'
-
-type PetsByOwnerGender = {
-    [OwnerGender.MALE]: Pet[]
-    [OwnerGender.FEMALE]: Pet[]
-}
+import { OwnerGender, PetType } from '../types'
 
 export const sortPetsByOwnerGender = (owners: Owner[], petType: PetType): PetsByOwnerGender => {
     let result: PetsByOwnerGender = {
