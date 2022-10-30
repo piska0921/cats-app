@@ -13,10 +13,12 @@ const AlertContainer = styled.div`
     background-color: #f8d7da;
     border-color: #f5c2c7;
 `
-export const Alert: React.FC<AlertProps> = ({ message }) => {
+const Alert: React.FC<AlertProps> = ({ message }) => {
     return (
         <AlertContainer role="alert" aria-live="assertive">
             {message}
         </AlertContainer>
     )
 }
+
+export default Alert

@@ -5,7 +5,7 @@ import { PetsByOwnerGender } from '../types'
 import { PetType } from '../types'
 import { ApiHookResult } from '../types/apiHooks'
 
-export const useGetCatListByGender = (): ApiHookResult<PetsByOwnerGender> & { fetchCatList: () => void } => {
+const useGetCatListByGender = (): ApiHookResult<PetsByOwnerGender> & { fetchCatList: () => void } => {
     const [success, setSuccess] = useState(false)
     const [loading, setLoading] = useState(false)
     const [data, setData] = useState<PetsByOwnerGender>({
@@ -29,3 +29,5 @@ export const useGetCatListByGender = (): ApiHookResult<PetsByOwnerGender> & { fe
 
     return { data, success, loading, error, fetchCatList }
 }
+
+export default useGetCatListByGender

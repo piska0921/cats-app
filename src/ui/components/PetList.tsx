@@ -35,7 +35,7 @@ const ListItem = styled.li`
     }
 `
 
-export const PetList: React.FC<PetListProps> = (props: PetListProps) => {
+const PetList: React.FC<PetListProps> = (props: PetListProps) => {
     const { title, petList } = props
     return (
         <Container>
@@ -46,3 +46,5 @@ export const PetList: React.FC<PetListProps> = (props: PetListProps) => {
         </Container>
     )
 }
+
+export default PetList
